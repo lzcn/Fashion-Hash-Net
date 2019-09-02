@@ -11,10 +11,10 @@ This responsitory contains the code of paper [Learning Binary Code for Personali
 - PIL
 - numpy
 - pandas
-- tqdm
-- lmdb
-- yaml
-- visdom
+- [tqdm](https://github.com/tqdm/tqdm): A Fast, Extensible Progress Bar for Python and CLI
+- [lmdb](https://lmdb.readthedocs.io/en/release/): A universal Python binding for the LMDB 'Lightning' Database.
+- [yaml](https://pyyaml.org/): PyYAML is a full-featured YAML framework for the Python programming language.
+- [visdom](https://github.com/facebookresearch/visdom): To start a visdom server run `python -m visdom.server`
 
 I upgraded the version of [PyTorch](https://pytorch.org) to `1.2.0` and the package dependency is solved automatically with [`conda`](https://docs.conda.io/en/latest/).
 
@@ -51,8 +51,7 @@ There are three main modules in `polyvore`:
 - `polyvore.model`: module for fashion hash net
 - `polyvore.solver`: module for training
 
-For configurations, see `polyvore.param`, and we give some examples in `cfg` folder.
-The configuration file was written in [yaml](https://pyyaml.org/) format.
+For configurations, see `polyvore.param`, and we give some examples in `cfg` folder. The configuration file was written in [yaml](https://pyyaml.org/) format.
 
 ### Train
 
@@ -67,7 +66,7 @@ scripts/run.py train --cfg ./cfg/train/FHN_VSE_T3_630.yaml
 To evaluate the accuracy of positive-negative pairs:
 
 ```bash
-scripts/run.py evaluate-accuracy --cfg ./cfg/evalute/FHN_VSE_T3_630.yaml  
+scripts/run.py evaluate-accuracy --cfg ./cfg/evalute/FHN_VSE_T3_630.yaml
 ```
 
 To evaluate the rank quality:
@@ -79,13 +78,12 @@ scripts/run.py evaluate-rank --cfg ./cfg/evaluate-rank/FHN_VSE_T3_630.yaml
 To evaluate the FITB task:
 
 ```bash
-scripts/run.py fitb --cfg ./cfg/fitb/FHN_VSE_T3_630.yaml 
+scripts/run.py fitb --cfg ./cfg/fitb/FHN_VSE_T3_630.yaml
 ```
 
 ## How to Use the Polyvore-$U$s
 
-1. Download the data from [OneDrive](https://stduestceducn-my.sharepoint.com/:f:/g/personal/zhilu_std_uestc_edu_cn/Er7BPeXpVc5Egl9sufLB7V0BdYVoXDj8PcHqgYe3ze2i-w)
-and put the `polyvore` folder under `data`;
+1. Download the data from [OneDrive](https://stduestceducn-my.sharepoint.com/:f:/g/personal/zhilu_std_uestc_edu_cn/Er7BPeXpVc5Egl9sufLB7V0BdYVoXDj8PcHqgYe3ze2i-w) and put the `polyvore` folder under `data`;
 
 2. Unzip the `polyvore/images/291x291.tar.gz`;
 
@@ -95,10 +93,9 @@ and put the `polyvore` folder under `data`;
 script/build_polyvore.py data/polyvore/images/291x291 data/polyvore/images/lmdb
 ```
 
-> The `lmdb` format can accelerate the load of images and set as default in configuration.
-> If you don't want to use the `lmdb` format, change the setting to `use_lmdb: false` in `yaml` files.
+> The `lmdb` format can accelerate the load of images and set as default in configuration. If you don't want to use the `lmdb` format, change the setting to `use_lmdb: false` in `yaml` files.
 
-See [data/README.md](data/README.md) for details
+See <data/README.md> for details
 
 ## How to Cite
 
