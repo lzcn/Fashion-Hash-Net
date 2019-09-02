@@ -84,7 +84,7 @@ scripts/run.py fitb --cfg ./cfg/fitb/FHN_VSE_T3_630.yaml
 
 ## How to Use the Polyvore-$U$s
 
-Download the data from [OneDrive](https://stduestceducn-my.sharepoint.com/:f:/g/personal/zhilu_std_uestc_edu_cn/Er7BPeXpVc5Egl9sufLB7V0BYXWSIU3dglfaxdh7ijQ_9w?e=rBLI7L)
+Download the data from [OneDrive](https://stduestceducn-my.sharepoint.com/:f:/g/personal/zhilu_std_uestc_edu_cn/Er7BPeXpVc5Egl9sufLB7V0BdYVoXDj8PcHqgYe3ze2i-w)
 
 See [data/README.md](data/README.md) for details
 
