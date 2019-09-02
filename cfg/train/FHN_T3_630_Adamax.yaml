@@ -1,0 +1,51 @@
+data_param:
+  batch_size: 64 # batch size
+  data_root: data/polyvore # data root
+  image_root: data/polyvore # image root
+  data_set: tuples_630 # data set
+  data_mode: PairWise # output data format
+  nega_mode: RandomOnline # negative outfits strategy
+  num_workers: 6 # number of workers
+  use_lmdb: true # use lmbd data
+  use_semantic: false # use sentance data
+  use_visual: true # use visual data
+
+train_data_param:
+  shuffle: true # do shuffle
+  data_mode: PairWise # output data format
+  phase: train # split
+
+test_data_param:
+  shuffle: false # do not shuffle
+  data_mode: PairWise # output data format
+  phase: val # split
+
+net_param:
+  name: FashionNet
+  num_users: 630 # number of users
+  dim: 128 # dimension of binary codes
+  backbone: alexnet # backbone for feature extractor
+  hash_types: 3 # type of hash codes
+  scale_tanh: true # use scale tahn
+  use_semantic: false # use semantic features
+  use_visual: true # user visdual features
+
+solver_param:
+  name: FashionNetSolver
+  display: 20 # display interval
+  epochs: 100 # total epoches
+  gamma: 1.0 # gamma for scale-tanh
+  gpus: [0]
+  visdom_env: fashion_hash_net
+  visdom_title: fashion_hash_net_t3_u630_adamax
+  checkpoints: ./checkpoints/fashion_hash_net_t3_u630_adamax
+  optim_param:
+    name: Adamax
+    lr: [0.5, 0.0001, 0.0002, 0.0002] # learning rate for each group
+    weight_decay: 1.0e-06
+    grad_param: { betas: [0.9, 0.9999] }
+    lr_scheduler: StepLR
+    scheduler_param: { step_size: 30, gamma: 0.1 }
+
+log_file: logs/train/fashion_hash_net_t3_u630_adamax.log
+log_level: DEBUG

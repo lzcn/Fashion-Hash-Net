@@ -1,0 +1,27 @@
+data_param:
+  phase: test
+  batch_size: 64
+  data_root: data/polyvore # data root
+  data_set: tuples_630 # data set
+  data_mode: TupleOnly
+  shuffle: False
+  num_workers: 6 # number of workers
+  use_lmdb: true # use lmbd data
+  use_semantic: true # use sentance data
+  use_visual: true # use visual data
+
+net_param:
+  name: FashionNetDeploy
+  num_users: 630 # number of users
+  dim: 128 # dimension of binary codes
+  backbone: alexnet # backbone for feature extractor
+  hash_types: 3 # type of hash codes
+  scale_tanh: true # use scale tahn
+  use_semantic: true # use semantic features
+  use_visual: true # user visdual features
+
+# trained model name
+load_trained: models/fashion_hash_net_vse_t3_u630_best.net
+# save the hashing codes of users/items into file (include weights)
+feature_file: features/fashion_hash_net_vse_t3_u630.npz
+gpus: [0]
