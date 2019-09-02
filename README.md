@@ -84,11 +84,23 @@ scripts/run.py fitb --cfg ./cfg/fitb/FHN_VSE_T3_630.yaml
 
 ## How to Use the Polyvore-$U$s
 
-Download the data from [OneDrive](https://stduestceducn-my.sharepoint.com/:f:/g/personal/zhilu_std_uestc_edu_cn/Er7BPeXpVc5Egl9sufLB7V0BdYVoXDj8PcHqgYe3ze2i-w)
+1. Download the data from [OneDrive](https://stduestceducn-my.sharepoint.com/:f:/g/personal/zhilu_std_uestc_edu_cn/Er7BPeXpVc5Egl9sufLB7V0BdYVoXDj8PcHqgYe3ze2i-w)
+and put the `polyvore` folder under `data`;
+
+2. Unzip the `polyvore/images/291x291.tar.gz`;
+
+3. Use `script/build_polyvore.py` to convert images and save in `data/polyvore/lmdb`.
+
+```bash
+script/build_polyvore.py data/polyvore/images/291x291 data/polyvore/images/lmdb
+```
+
+> The `lmdb` format can accelerate the load of images and set as default in configuration.
+> If you don't want to use the `lmdb` format, change the setting to `use_lmdb: false` in `yaml` files.
 
 See [data/README.md](data/README.md) for details
 
-### How to Cite
+## How to Cite
 
 ```latex
 @inproceedings{Lu:2019tk,
